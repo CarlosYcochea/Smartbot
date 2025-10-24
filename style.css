@@ -1,11 +1,13 @@
+/* Fuente e interfaz general */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #c9e7ff, #e2f0ff);
+  background: linear-gradient(135deg, #d4e6ff, #f1f4ff);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: background 0.4s;
 }
 
 .chat-container {
@@ -17,20 +19,17 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: background 0.4s, color 0.4s;
 }
 
+/* Encabezado */
 .chat-header {
   background: #007bff;
   color: white;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
   padding: 15px 20px;
-}
-
-.chat-header .bot-icon {
-  width: 40px;
-  height: 40px;
 }
 
 .chat-header h2 {
@@ -44,6 +43,31 @@ body {
   opacity: 0.9;
 }
 
+/* Logo animado */
+.bot-logo {
+  position: relative;
+}
+.bot-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Chat box */
 .chat-box {
   flex: 1;
   overflow-y: auto;
@@ -51,7 +75,6 @@ body {
   background-color: #f5f8fb;
   scroll-behavior: smooth;
 }
-
 .chat-box::-webkit-scrollbar {
   width: 6px;
 }
@@ -60,6 +83,7 @@ body {
   border-radius: 3px;
 }
 
+/* Mensajes */
 .msg-bubble {
   padding: 10px 14px;
   border-radius: 15px;
@@ -95,6 +119,7 @@ body {
   opacity: 0.7;
 }
 
+/* Entrada de texto */
 .chat-input {
   display: flex;
   border-top: 1px solid #ddd;
@@ -121,7 +146,37 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
-
 .chat-input button:hover {
   background: #0056c1;
+}
+
+/* Botón de tema */
+#toggle-theme {
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: white;
+}
+
+/* 🌙 Modo oscuro */
+body.dark {
+  background: linear-gradient(135deg, #0e1117, #20252b);
+}
+body.dark .chat-container {
+  background: #161b22;
+  color: white;
+}
+body.dark .chat-box {
+  background-color: #1f242c;
+}
+body.dark .bot {
+  background: #2b323c;
+  color: #f1f1f1;
+}
+body.dark .user {
+  background: #0a84ff;
+}
+body.dark #toggle-theme {
+  color: #ffd43b;
 }
