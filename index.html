@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartBot 💬</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="chat-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712108.png" alt="bot" class="bot-icon">
+    <h2>SmartBot <span>Asistente Virtual</span></h2>
+  </div>
+
+  <div id="chat-box" class="chat-box">
+    <div class="bot-msg">
+      <div class="msg-bubble bot">
+        👋 ¡Hola! Soy SmartBot. Pregúntame sobre precios, horarios o ubicación.
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Escribe un mensaje..." onkeypress="if(event.key==='Enter') sendMessage()">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
