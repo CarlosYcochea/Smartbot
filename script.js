@@ -3,15 +3,15 @@ const toggleTheme = document.getElementById("toggle-theme");
 const chatContainer = document.getElementById("chat-container");
 const loadingScreen = document.getElementById("loading-screen");
 
-// Mostrar chat después de la animación de carga
+// Mostrar chat después de la carga
 window.addEventListener("load", () => {
   setTimeout(() => {
     loadingScreen.style.display = "none";
     chatContainer.style.display = "flex";
-  }, 2600);
+  }, 3000);
 });
 
-// Scroll automático
+// Auto-scroll
 function scrollToBottom() {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
@@ -49,7 +49,7 @@ function sendMessage() {
   }, 1000);
 }
 
-// 🌙 Cambiar tema oscuro/claro
+// Cambiar tema
 toggleTheme.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   toggleTheme.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
